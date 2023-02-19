@@ -30,9 +30,9 @@ public class WeaponController : MonoBehaviour
     public void HatchetAttack()
     {
         CanAttack = false;
-        Animator anim = Hatchet.GetCompontent<Animator>();
+        Animator anim = Hatchet.GetComponent<Animator>();
         anim.SetTrigger("Attack");
-        AudioSource ac = GetCompontent<AudioSource>();
+        AudioSource ac = GetComponent<AudioSource>();
         ac.PlayOneShot(hatchetAttackSound);
         StartCoroutine(ResetAttackCooldown());
     }
