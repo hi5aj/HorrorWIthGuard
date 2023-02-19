@@ -8,13 +8,14 @@ public class KevinAI : MonoBehaviour
     public GameObject kevinDest;
     NavMeshAgent kevinAgent;
     public GameObject kevinEnemy;
-    public static bool isStalking;
+    public bool isStalking;
+    public float cooldown = 3.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         // Temporarily sets stalking mode to true so Kevin follows player
-        isStalking = true;
+        //isStalking = true;
         kevinAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -30,5 +31,21 @@ public class KevinAI : MonoBehaviour
         {
             kevinAgent.SetDestination(kevinDest.transform.position);
         }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Hatchet")
+        {
+            Debug.Log("Trying to stun enemy");
+            isStalking = false;
+            StartCoroutine(StunCooldown());
+        }
+    }
+
+    IEnumerator StunCooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        isStalking = true;
     }
 }
