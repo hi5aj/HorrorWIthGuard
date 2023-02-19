@@ -1256,7 +1256,7 @@ GameObject:
   - component: {fileID: 476226854}
   - component: {fileID: 476226853}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kevinDest: {fileID: 959759468}
+  kevinEnemy: {fileID: 0}
 --- !u!195 &476226854
 NavMeshAgent:
   m_ObjectHideFlags: 0
